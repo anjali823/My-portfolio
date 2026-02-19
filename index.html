@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anjali - Web Developer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Basic Reset and Variables */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #4a90e2; --secondary: #333; --light: #f4f4f4; --dark: #222; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--secondary); background: var(--light); transition: background 0.3s; }
+        body.dark { background: var(--dark); color: #fff; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        /* Header with Gradient */
+        header { background: linear-gradient(135deg, var(--primary), #357abd); color: #fff; padding: 40px 0; text-align: center; position: relative; }
+        header h1 { font-size: 3em; margin-bottom: 10px; }
+        header p { font-size: 1.3em; }
+        .dark-mode-toggle { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); border: none; color: #fff; padding: 10px; border-radius: 50%; cursor: pointer; }
+        
+        /* Navigation */
+        nav { display: flex; justify-content: center; margin-top: 20px; }
+        nav a { color: #fff; text-decoration: none; margin: 0 20px; font-weight: bold; transition: color 0.3s; }
+        nav a:hover { color: #ffd700; }
+        .menu-toggle { display: none; background: rgba(255,255,255,0.2); color: #fff; padding: 10px; cursor: pointer; border-radius: 5px; }
+        @media (max-width: 768px) { nav { display: none; flex-direction: column; } .menu-toggle { display: block; } nav.show { display: flex; } }
+        
+        /* Sections */
+        section { margin: 60px 0; padding: 30px; background: #fff; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); animation: fadeIn 1s ease-in; }
+        body.dark section { background: #333; }
+        section h2 { color: var(--primary); margin-bottom: 20px; border-bottom: 3px solid var(--primary); padding-bottom: 10px; display: flex; align-items: center; }
+        section h2 i { margin-right: 10px; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* About */
+        .about { display: flex; align-items: center; flex-wrap: wrap; }
+        .about img { width: 180px; height: 180px; border-radius: 50%; margin-right: 30px; border: 5px solid var(--primary); }
+        @media (max-width: 768px) { .about { flex-direction: column; text-align: center; } .about img { margin-bottom: 20px; } }
+        
+        /* Skills */
+        .skills ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+        .skills li { background: var(--light); padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s; }
+        .skills li:hover { transform: scale(1.05); background: var(--primary); color: #fff; }
+        body.dark .skills li { background: #444; }
+        
+        /* Projects */
+        .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .project { border: 1px solid #ddd; padding: 20px; border-radius: 8px; transition: box-shadow 0.3s; }
+        .project:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+        .project h3 { color: var(--primary); }
+        .project a { color: var(--primary); text-decoration: none; font-weight: bold; }
+        .project a:hover { text-decoration: underline; }
+        
+        /* Experience */
+        .experience ul { list-style: none; }
+        .experience li { margin-bottom: 20px; padding-left: 20px; border-left: 4px solid var(--primary); }
+        
+        /* Testimonials */
+        .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .testimonial { background: var(--light); padding: 20px; border-radius: 8px; text-align: center; }
+        body.dark .testimonial { background: #444; }
+        
+        /* Contact Form */
+        form { display: grid; gap: 15px; max-width: 500px; }
+        input, textarea { padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        button { background: var(--primary); color: #fff; border: none; padding: 12px; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
+        button:hover { background: #357abd; }
+        
+        /* Footer */
+        footer { text-align: center; padding: 20px; background: var(--secondary); color: #fff; }
+        .social-icons a { color: #fff; margin: 0 10px; font-size: 1.5em; transition: color 0.3s; }
+        .social-icons a:hover { color: var(--primary); }
+    </style>
+</head>
+<body>
+    <header>
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+        <div class="container">
+            <h1>Anjali</h1>
+            <p>Web Developer | AI Developer | B.Tech (CSE)</p>
+            <div class="menu-toggle" onclick="toggleMenu()">Menu</div>
+            <nav id="nav">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="about" class="about">
+                <img src="c:\Users\ad\OneDrive\Pictures\Anjali.jpg" alt="Anjali's Photo">
+                
+        <div>
+                <h2><i class="fas fa-user"></i>About Me</h2>
+                <p>I am a final-year B.Tech CSE student passionate about building intelligent and user-friendly web applications.
+                   I have hands-on experience in Python and AI-based tools like LangChain. Recently, 
+                   I deployed a Resume Parser application using LangChain and Python that extracts and processes candidate data efficiently.
+
+                   I have also developed a browser-based chatbot using HTML and built a Weather App integrating real-time API data.
+                   I enjoy exploring AI, automation, and full-stack development while continuously improving my problem-solving skills.</p>
+                <a href="files/resume.pdf" target="_blank" style="color: var(--primary); font-weight: bold;">Open Resume</a>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2><i class="fas fa-tools"></i>Skills</h2>
+            <ul>
+                <li><i class="fab fa-html5"></i> HTML & CSS</li>
+                <li><i class="fab fa-js"></i> JavaScript</li>
+                <li><i class="fab fa-react"></i> React</li>
+                <li><i class="fab fa-node-js"></i> Node.js</li>
+                <li><i class="fab fa-git"></i> Git & GitHub</li>
+                <li><i class="fas fa-mobile-alt"></i> Responsive Design</li>
+                <li>[Add more]</li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2><i class="fas fa-project-diagram"></i>Projects</h2>
+            <div class="project">
+                    <h3>[Resume parser app]</h3>
+                    <p>[This project demonstrates the use of file upload handling and LLM integration to analyze documents and show important details in an easy-to-understand way.]</p>
+                    <a href=" https://resume-parser-app-nupnuzqq9ma3rw8fiedqyl.streamlit.app/]">View</a>
+                </div>
+
+                <div class="project">
+                    <h3>E-Commerce Site</h3>
+                    <p>Built with React and Node.js, featuring authentication and payments.</p>
+                    <a href="[Demo]">View Demo</a> | <a href="[GitHub]">Source Code</a>
+                </div>
+                     
+                <div class="project">
+                    <h3>Personal Blog Website</h3>
+                    <p>A responsive blog with dynamic content and mobile optimization.</p>
+                    <a href="[https://github.com/anjali823/ai-chatbot-1.git]">View Demo</a> | <a href="[https://github.com/anjali823/ai-chatbot-1.git]">Source Code</a>   
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2><i class="fas fa-briefcase"></i>Experience</h2>
+            <ul>
+                <li><strong>Web Developer Intern</strong> at [Company], [Dates]<br>Developed responsive websites and collaborated on team projects.</li>
+                <li><strong>Freelance Web Developer</strong>, [Dates]<br>Built custom sites for clients using modern web technologies.</li>
+                <li>[Add more experience]</li>
+            </ul>
+        </section>
+
+        
+
+        <section id="contact">
+            <h2><i class="fas fa-envelope"></i>Contact Me</h2>
+            <form action="https://formspree.io/f/[Your Formspree ID]" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <p>Email: [anjalisaini843843@gmail.com] </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-icons">
+            <a href="[https://www.linkedin.com/in/anjali-saini-274806323/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bn%2FdXB6K7QCKpfz%2FhJgeLFw%3D%3D]"><i class="fab fa-linkedin"></i></a>
+            <a href="[https://github.com/anjali823]"><i class="fab fa-github"></i></a>
+            <a href="[Twitter URL]"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2023 Anjali. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() { document.getElementById('nav').classList.toggle('show'); }
+        function toggleDarkMode() { document.body.classList.toggle('dark'); }
+        // Smooth scrolling
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
